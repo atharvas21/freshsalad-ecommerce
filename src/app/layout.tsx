@@ -4,6 +4,7 @@ import './globals.css'
 import { AuthProvider } from '@/components/providers/AuthProvider'
 import { CartProvider } from '@/components/providers/CartProvider'
 import Navbar from '@/components/layout/Navbar'
+import FloatingCartButton from '@/components/cart/FloatingCartButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
             <main className="min-h-screen">
               {children}
             </main>
+            <FloatingCartButton />
           </CartProvider>
         </AuthProvider>
       </body>
