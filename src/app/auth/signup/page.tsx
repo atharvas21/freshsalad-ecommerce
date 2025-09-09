@@ -135,7 +135,7 @@ export default function SignupPage() {
                 Check Your Email
               </h1>
               <p className="text-gray-300">
-                We've sent a verification code to{' '}
+                We&apos;ve sent a verification code to{' '}
                 <span className="text-green-400 font-medium">{formData.email}</span>
               </p>
             </div>
@@ -180,7 +180,7 @@ export default function SignupPage() {
                 </button>
 
                 <div className="text-center space-y-2">
-                  <p className="text-gray-400 text-sm">Didn't receive the code?</p>
+                  <p className="text-gray-400 text-sm">Didn&apos;t receive the code?</p>
                   <button
                     type="button"
                     className="text-green-400 hover:text-green-300 text-sm font-medium transition-colors duration-200"
@@ -419,7 +419,7 @@ export default function SignupPage() {
                     ) : (
                       <>
                         <XMarkIcon className="h-4 w-4 text-red-400" />
-                        <span className="text-red-400">Passwords don't match</span>
+                        <span className="text-red-400">Passwords don&apos;t match</span>
                       </>
                     )}
                   </div>
