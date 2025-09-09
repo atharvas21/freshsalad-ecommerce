@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import jwt from 'jsonwebtoken'
-import { v4 as uuidv4 } from 'uuid'
-import { addOrder } from '@/lib/database'
+
+// Mock order storage
+const orders: any[] = []
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key'
 
@@ -38,24 +39,31 @@ export async function POST(request: NextRequest) {
         )
       }
 
-      const orderId = uuidv4()
+      // Generate order number
+      const orderNumber = `FS${Date.now().toString().slice(-8)}`
+
+      // Create order
       const order = {
-        id: orderId,
+        id: Date.now().toString(),
+        orderNumber,
         userId,
         items,
-        deliveryInfo,
+        deliveryInfo: {
+          ...deliveryInfo,
+          estimatedDelivery: new Date(Date.now() + 45 * 60 * 1000).toISOString()
+        },
         totalAmount,
         status: 'confirmed',
-        createdAt: new Date().toISOString(),
-        estimatedDelivery: new Date(Date.now() + 45 * 60 * 1000).toISOString() // 45 minutes from now
+        createdAt: new Date().toISOString()
       }
 
-      addOrder(order)
+      orders.push(order)
 
       return NextResponse.json({
         message: 'Order placed successfully',
-        orderId,
-        order
+        orderId: order.id,
+        orderNumber: order.orderNumber,
+        estimatedDelivery: order.deliveryInfo.estimatedDelivery
       })
     } catch (jwtError) {
       return NextResponse.json(
