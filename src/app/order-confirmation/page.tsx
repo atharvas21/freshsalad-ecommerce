@@ -27,9 +27,11 @@ function OrderConfirmationContent() {
 
   const fetchOrder = async (id: string) => {
     try {
+      const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+      
       const response = await fetch(`/api/orders/${id}`, {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          'Authorization': `Bearer ${token}`
         }
       })
       

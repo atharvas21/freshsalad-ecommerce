@@ -32,9 +32,11 @@ export default function OrderHistoryPage() {
 
   const fetchOrders = async () => {
     try {
+      const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+      
       const response = await fetch('/api/orders/user', {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          'Authorization': `Bearer ${token}`
         }
       })
       

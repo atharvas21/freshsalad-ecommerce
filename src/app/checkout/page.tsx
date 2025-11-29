@@ -38,11 +38,13 @@ export default function CheckoutPage() {
     setError('')
 
     try {
+      const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+      
       const response = await fetch('/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           items,
