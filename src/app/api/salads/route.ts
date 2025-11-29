@@ -10,12 +10,11 @@ const mockSalads = [
     image: '/images/mediterranean-salad.jpg',
     category: 'Mediterranean',
     ingredients: ['Mixed greens', 'Tomatoes', 'Cucumbers', 'Olives', 'Feta cheese', 'Olive oil dressing'],
-    nutritionInfo: {
+    macros: {
       calories: 280,
       protein: 8,
       carbs: 15,
-      fat: 22,
-      fiber: 6
+      fat: 22
     },
     allergens: ['Dairy'],
     vegan: false,
@@ -30,12 +29,11 @@ const mockSalads = [
     image: '/images/caesar-salad.jpg',
     category: 'Classic',
     ingredients: ['Romaine lettuce', 'Parmesan cheese', 'Croutons', 'Caesar dressing'],
-    nutritionInfo: {
+    macros: {
       calories: 320,
       protein: 10,
       carbs: 18,
-      fat: 24,
-      fiber: 4
+      fat: 24
     },
     allergens: ['Dairy', 'Gluten'],
     vegan: false,
@@ -50,12 +48,11 @@ const mockSalads = [
     image: '/images/green-goddess-salad.jpg',
     category: 'Healthy',
     ingredients: ['Spinach', 'Avocado', 'Cucumber', 'Mixed herbs', 'Green goddess dressing'],
-    nutritionInfo: {
+    macros: {
       calories: 250,
       protein: 6,
       carbs: 12,
-      fat: 20,
-      fiber: 8
+      fat: 20
     },
     allergens: [],
     vegan: true,
@@ -70,12 +67,11 @@ const mockSalads = [
     image: '/images/protein-power-salad.jpg',
     category: 'Protein',
     ingredients: ['Grilled chicken', 'Quinoa', 'Chickpeas', 'Mixed vegetables', 'Tahini dressing'],
-    nutritionInfo: {
+    macros: {
       calories: 380,
       protein: 28,
       carbs: 25,
-      fat: 18,
-      fiber: 10
+      fat: 18
     },
     allergens: ['Sesame'],
     vegan: false,
@@ -90,12 +86,11 @@ const mockSalads = [
     image: '/images/rainbow-crunch-salad.jpg',
     category: 'Colorful',
     ingredients: ['Bell peppers', 'Carrots', 'Purple cabbage', 'Sunflower seeds', 'Balsamic vinaigrette'],
-    nutritionInfo: {
+    macros: {
       calories: 220,
       protein: 5,
       carbs: 18,
-      fat: 14,
-      fiber: 7
+      fat: 14
     },
     allergens: [],
     vegan: true,
@@ -110,12 +105,11 @@ const mockSalads = [
     image: '/images/tropical-paradise-salad.jpg',
     category: 'Tropical',
     ingredients: ['Mixed greens', 'Mango', 'Pineapple', 'Coconut flakes', 'Citrus dressing'],
-    nutritionInfo: {
+    macros: {
       calories: 290,
       protein: 4,
       carbs: 22,
-      fat: 16,
-      fiber: 6
+      fat: 16
     },
     allergens: [],
     vegan: true,
@@ -125,5 +119,5 @@ const mockSalads = [
 ]
 
 export async function GET() {
-  return NextResponse.json(mockSalads)
+  return NextResponse.json({ salads: mockSalads })
 }

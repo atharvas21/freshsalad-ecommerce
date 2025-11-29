@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useCart } from '@/components/providers/CartProvider'
 import Image from 'next/image'
 
@@ -30,7 +30,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   const quantity = getItemQuantity(product.id)
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = useCallback(async () => {
     setIsAdding(true)
     
     // Add item to cart
@@ -45,20 +45,20 @@ export default function ProductCard({ product }: ProductCardProps) {
     setTimeout(() => {
       setIsAdding(false)
     }, 1000)
-  }
+  }, [addItem, product.id, product.name, product.price, product.image])
 
-  const handleIncrement = () => {
+  const handleIncrement = useCallback(() => {
     addItem({
       id: product.id,
       name: product.name,
       price: product.price,
       image: product.image,
     })
-  }
+  }, [addItem, product.id, product.name, product.price, product.image])
 
-  const handleDecrement = () => {
+  const handleDecrement = useCallback(() => {
     decrementItem(product.id)
-  }
+  }, [decrementItem, product.id])
 
   return (
     <article 
@@ -153,7 +153,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <div className="flex items-center justify-between mb-3">
             <div className="space-y-1">
               <div className="text-2xl font-bold text-primary-600">
-                ${product.price.toFixed(2)}
+                ₹{product.price}
               </div>
               <div className="text-xs text-gray-500">per serving</div>
             </div>
@@ -167,6 +167,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           
           {quantity === 0 ? (
             <button
+              type="button"
               onClick={handleAddToCart}
               disabled={isAdding}
               className={`w-full inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${
@@ -174,7 +175,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                   ? 'bg-green-500 text-white shadow-lg scale-105'
                   : 'bg-primary-600 hover:bg-primary-700 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5'
               } disabled:cursor-not-allowed`}
-              aria-label={`Add ${product.name} to cart for $${product.price.toFixed(2)}`}
+              aria-label={`Add ${product.name} to cart for ₹${product.price}`}
             >
               {isAdding ? (
                 <span className="flex items-center">
@@ -197,6 +198,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div className="flex items-center gap-3">
               <div className="flex items-center bg-gray-100 rounded-xl overflow-hidden">
                 <button
+                  type="button"
                   onClick={handleDecrement}
                   className="flex items-center justify-center w-10 h-10 text-gray-600 hover:text-primary-600 hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
                   aria-label="Decrease quantity"
@@ -209,6 +211,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                   {quantity}
                 </div>
                 <button
+                  type="button"
                   onClick={handleIncrement}
                   className="flex items-center justify-center w-10 h-10 text-gray-600 hover:text-primary-600 hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
                   aria-label="Increase quantity"
@@ -219,7 +222,8 @@ export default function ProductCard({ product }: ProductCardProps) {
                 </button>
               </div>
               <button
-                onClick={handleAddToCart}
+                type="button"
+                onClick={handleIncrement}
                 className="flex-1 inline-flex items-center justify-center px-4 py-2.5 rounded-xl text-sm font-semibold bg-primary-600 hover:bg-primary-700 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
                 aria-label={`Add another ${product.name} to cart`}
               >

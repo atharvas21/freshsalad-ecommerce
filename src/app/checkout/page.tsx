@@ -21,9 +21,9 @@ export default function CheckoutPage() {
   const [error, setError] = useState('')
 
   const totalPrice = getTotalPrice()
-  const deliveryFee = 3.99
-  const tax = totalPrice * 0.08
-  const finalTotal = totalPrice + deliveryFee + tax
+  const deliveryFee = 50
+  const tax = Math.round(totalPrice * 0.08)
+  const finalTotal = Math.round(totalPrice + deliveryFee + tax)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setDeliveryInfo({
@@ -176,7 +176,7 @@ export default function CheckoutPage() {
                 disabled={isLoading}
                 className="w-full bg-primary-600 text-white py-3 px-4 rounded-md hover:bg-primary-700 btn-hover font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isLoading ? 'Placing Order...' : `Place Order - $${finalTotal.toFixed(2)}`}
+                {isLoading ? 'Placing Order...' : `Place Order - ₹${finalTotal}`}
               </button>
             </form>
           </div>
@@ -200,7 +200,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="text-right">
                     <p className="font-medium text-gray-900">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      ₹{Math.round(item.price * item.quantity)}
                     </p>
                   </div>
                 </div>
@@ -211,21 +211,21 @@ export default function CheckoutPage() {
             <div className="border-t pt-4 space-y-2">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Subtotal</span>
-                <span className="text-gray-900">${totalPrice.toFixed(2)}</span>
+                <span className="text-gray-900">₹{totalPrice}</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Delivery Fee</span>
-                <span className="text-gray-900">${deliveryFee.toFixed(2)}</span>
+                <span className="text-gray-900">₹{deliveryFee}</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Tax</span>
-                <span className="text-gray-900">${tax.toFixed(2)}</span>
+                <span className="text-gray-900">₹{tax}</span>
               </div>
               <div className="border-t pt-2">
                 <div className="flex justify-between">
                   <span className="text-base font-semibold text-gray-900">Total</span>
                   <span className="text-base font-semibold text-gray-900">
-                    ${finalTotal.toFixed(2)}
+                    ₹{finalTotal}
                   </span>
                 </div>
               </div>

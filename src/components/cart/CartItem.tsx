@@ -43,7 +43,7 @@ export default function CartItem({ item }: CartItemProps) {
           {item.size && (
             <p className="text-sm text-gray-500">Size: {item.size}</p>
           )}
-          <p className="text-sm text-gray-600">${item.price.toFixed(2)} each</p>
+          <p className="text-sm text-gray-600">₹{item.price} each</p>
         </div>
       </div>
 
@@ -78,7 +78,7 @@ export default function CartItem({ item }: CartItemProps) {
         {/* Price & Remove Section */}
         <div className="text-right">
           <p className="text-lg font-semibold text-gray-900 whitespace-nowrap">
-            ${(item.price * item.quantity).toFixed(2)}
+            ₹{Math.round(item.price * item.quantity)}
           </p>
           <button
             onClick={handleRemove}

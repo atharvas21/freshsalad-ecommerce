@@ -69,21 +69,21 @@ export default function CartPage() {
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">Subtotal</span>
-                    <span className="text-gray-900">${totalPrice.toFixed(2)}</span>
+                    <span className="text-gray-900">₹{totalPrice}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">Delivery Fee</span>
-                    <span className="text-gray-900">$3.99</span>
+                    <span className="text-gray-900">₹50</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">Tax</span>
-                    <span className="text-gray-900">${(totalPrice * 0.08).toFixed(2)}</span>
+                    <span className="text-gray-900">₹{Math.round(totalPrice * 0.08)}</span>
                   </div>
                   <div className="border-t pt-3">
                     <div className="flex justify-between">
                       <span className="text-base font-semibold text-gray-900">Total</span>
                       <span className="text-base font-semibold text-gray-900">
-                        ${(totalPrice + 3.99 + totalPrice * 0.08).toFixed(2)}
+                        ₹{Math.round(totalPrice + 50 + totalPrice * 0.08)}
                       </span>
                     </div>
                   </div>

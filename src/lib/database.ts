@@ -47,7 +47,7 @@ const salads: Salad[] = [
   {
     id: '1',
     name: 'Mediterranean Delight',
-    price: 12.99,
+    price: 299,
     image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop',
     description: 'Fresh mixed greens with cherry tomatoes, olives, feta cheese, and Mediterranean herbs.',
     macros: {
@@ -61,7 +61,7 @@ const salads: Salad[] = [
   {
     id: '2',
     name: 'Caesar Supreme',
-    price: 11.99,
+    price: 149,
     image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400&h=300&fit=crop',
     description: 'Crisp romaine lettuce with grilled chicken, parmesan cheese, and our signature Caesar dressing.',
     macros: {
@@ -75,7 +75,7 @@ const salads: Salad[] = [
   {
     id: '3',
     name: 'Protein Power Bowl',
-    price: 14.99,
+    price: 249,
     image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=300&fit=crop',
     description: 'Quinoa base with grilled salmon, avocado, chickpeas, and mixed vegetables.',
     macros: {
@@ -89,7 +89,7 @@ const salads: Salad[] = [
   {
     id: '4',
     name: 'Garden Fresh Veggie',
-    price: 9.99,
+    price: 249,
     image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop',
     description: 'A colorful mix of seasonal vegetables with hummus and tahini dressing.',
     macros: {
@@ -103,7 +103,7 @@ const salads: Salad[] = [
   {
     id: '5',
     name: 'Keto Avocado Crunch',
-    price: 13.99,
+    price: 449,
     image: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=400&h=300&fit=crop',
     description: 'Low-carb salad with avocado, bacon, eggs, and cheese on a bed of spinach.',
     macros: {
@@ -117,7 +117,7 @@ const salads: Salad[] = [
   {
     id: '6',
     name: 'Asian Fusion',
-    price: 12.49,
+    price: 229,
     image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop',
     description: 'Asian-inspired salad with grilled chicken, mandarin oranges, and sesame ginger dressing.',
     macros: {
@@ -131,7 +131,7 @@ const salads: Salad[] = [
   {
     id: '7',
     name: 'Southwest Fiesta',
-    price: 11.99,
+    price: 329,
     image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop',
     description: 'Spicy southwestern salad with black beans, corn, peppers, and chipotle dressing.',
     macros: {
@@ -145,7 +145,7 @@ const salads: Salad[] = [
   {
     id: '8',
     name: 'Tropical Paradise',
-    price: 13.49,
+    price: 319,
     image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop',
     description: 'Refreshing tropical salad with grilled shrimp, mango, pineapple, and coconut.',
     macros: {

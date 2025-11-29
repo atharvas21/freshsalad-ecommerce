@@ -61,7 +61,7 @@ export default function FloatingCartButton() {
             </div>
           </div>
           <div className="text-sm">
-            <div className="font-semibold">${totalPrice.toFixed(2)}</div>
+            <div className="font-semibold">₹{totalPrice}</div>
             <div className="text-xs opacity-90">{totalItems} item{totalItems !== 1 ? 's' : ''}</div>
           </div>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

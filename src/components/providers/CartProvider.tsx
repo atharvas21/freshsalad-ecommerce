@@ -52,12 +52,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
       )
 
       if (existingItemIndex > -1) {
-        // Item already exists, increase quantity
+        // Item already exists, increase quantity by exactly 1
         const updatedItems = [...currentItems]
-        updatedItems[existingItemIndex].quantity += 1
+        updatedItems[existingItemIndex] = {
+          ...updatedItems[existingItemIndex],
+          quantity: updatedItems[existingItemIndex].quantity + 1
+        }
         return updatedItems
       } else {
-        // New item, add to cart
+        // New item, add to cart with quantity 1
         return [...currentItems, { ...newItem, quantity: 1 }]
       }
     })
@@ -106,7 +109,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }
 
   const getTotalPrice = () => {
-    return items.reduce((total, item) => total + (item.price * item.quantity), 0)
+    return Math.round(items.reduce((total, item) => total + (item.price * item.quantity), 0))
   }
 
   const getTotalItems = () => {
